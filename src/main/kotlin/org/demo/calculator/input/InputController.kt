@@ -3,9 +3,27 @@ package org.demo.calculator.input
 import org.demo.calculator.opertator.*
 import java.util.*
 
+/**
+ * Class which is used to determine and executing the content of the command line input. First this class splitting
+ * the content using the blank space between the characters. After that the class checks each character and determines
+ * it's operation. Numbers will be saved inside a LinkedList object for eventual later usage. Operators (like '+' or
+ * '-') will be executed and saved inside a separate LinkedList to revert it's action. At the end the class is
+ * returning a string array which includes it's response to the user input.
+ *
+ * @see InputController.executeInput Main function of this object.
+ */
 class InputController {
 
+    /**
+     * LinkedList which saves all numbers from the command line and resulting from operations. Content will be insert
+     * as last-in-last-out (LILO).
+     */
     private val stack: LinkedList<Double> = LinkedList()
+
+    /**
+     * LinkedList which saves all past operations so that those can be reverted if needed. Content will be insert as
+     * last-in-last-out (LILO).
+     */
     private val operatorStack: LinkedList<Operation> = LinkedList()
 
     fun executeInput(input: String): Array<String> {
