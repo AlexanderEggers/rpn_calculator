@@ -1,6 +1,6 @@
 package opertator
 
-enum class OperatorType(val value: String, val requiredValueCount: Int, val revertable: Boolean) {
+enum class OperatorType(val value: String, val requiredStackElements: Int, val revertable: Boolean) {
     ADDITION("+", 2, true),
     SUBTRACTION("-", 2, true),
     MULTIPLICATION("*", 2, true),

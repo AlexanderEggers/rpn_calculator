@@ -8,18 +8,18 @@ abstract class Operation constructor(private val operatorType: OperatorType) {
     private val valueList: ArrayList<Double> = ArrayList()
 
     private fun hasStackEnoughElements(stack: LinkedList<Double>): Boolean {
-        return stack.size >= operatorType.requiredValueCount
+        return stack.size >= operatorType.requiredStackElements
     }
 
     private fun prepareExecuteValues(stack: LinkedList<Double>) {
-        for (i in 1..operatorType.requiredValueCount) {
+        for (i in 1..operatorType.requiredStackElements) {
             valueList.add(stack.pollLast())
         }
     }
 
     fun execute(stack: LinkedList<Double>): Boolean {
         if (hasStackEnoughElements(stack)) {
-            if (operatorType.requiredValueCount > 0) prepareExecuteValues(stack)
+            if (operatorType.requiredStackElements > 0) prepareExecuteValues(stack)
             onExecute(stack, valueList.reversed().toTypedArray())
             return true
         }
