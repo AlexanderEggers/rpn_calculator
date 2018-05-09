@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8da4a126-460f-47af-bece-890e82548ff3" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/opertator/Operation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/opertator/Operation.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/opertator/OperatorType.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/opertator/OperatorType.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/input/InputController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/input/InputController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/input/Utils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/input/Utils.kt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -25,23 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="InputController.kt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="InputController.kt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/input/InputController.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="24" column="25" lean-forward="true" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Operation.kt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/opertator/Operation.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="66" selection-start-line="5" selection-start-column="66" selection-end-line="5" selection-end-column="66" />
-              <folding>
-                <element signature="e#19#73#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="836">
+              <caret line="62" column="13" lean-forward="true" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -487,9 +475,9 @@
         <option value="$PROJECT_DIR$/src/main/kotlin/opertator/UndoOperation.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/opertator/Operation.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/Main.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/input/InputController.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/input/Utils.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/opertator/OperatorType.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/input/Utils.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/input/InputController.kt" />
       </list>
     </option>
   </component>
@@ -825,24 +813,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/input/Utils.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" selection-start-column="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/opertator/UndoOperation.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/input/InputController.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="24" column="25" lean-forward="true" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -855,11 +829,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/opertator/Operation.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="66" selection-start-line="5" selection-start-column="66" selection-end-line="5" selection-end-column="66" />
-          <folding>
-            <element signature="e#19#73#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="391">
+          <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/input/Utils.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/input/InputController.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="836">
+          <caret line="62" column="13" lean-forward="true" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="13" />
         </state>
       </provider>
     </entry>

@@ -4,6 +4,8 @@ import java.text.DecimalFormat
 
 object Utils {
 
+    val STACK_SEPERATOR: String = " "
+
     fun isNumeric(str: String): Boolean {
         try {
             java.lang.Double.parseDouble(str)

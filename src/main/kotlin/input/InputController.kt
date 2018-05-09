@@ -9,19 +9,19 @@ class InputController {
     private val operatorStack: LinkedList<Operation> = LinkedList()
 
     fun executeInput(input: String): String {
-        val inputArray: List<String> = input.split(" ")
+        val inputArray: List<String> = input.split(Utils.STACK_SEPERATOR)
 
         inputArray.withIndex().forEach {
             val operation: Operation
 
             when (it.value) {
-                "+" -> operation = AdditionOperation()
-                "-" -> operation = SubstractionOperation()
-                "*" -> operation = MultiplicationOperation()
-                "/" -> operation = DivisionOperation()
-                "sqrt" -> operation = SquareOperation()
-                "undo" -> operation = UndoOperation(operatorStack)
-                "clear" -> operation = ClearOperation()
+                OperatorType.ADDITION.value -> operation = AdditionOperation()
+                OperatorType.SUBTRACTION.value -> operation = SubstractionOperation()
+                OperatorType.MULTIPLICATION.value -> operation = MultiplicationOperation()
+                OperatorType.DIVISION.value -> operation = DivisionOperation()
+                OperatorType.SQUARE.value -> operation = SquareOperation()
+                OperatorType.UNDO.value -> operation = UndoOperation(operatorStack)
+                OperatorType.CLEAR.value -> operation = ClearOperation()
                 else -> {
                     if (Utils.isNumeric(it.value)) {
                         operation = StackOperation(it.value)
@@ -40,7 +40,7 @@ class InputController {
     }
 
     private fun logWithErrorAndStack(inputValue: String, pos: Int): String {
-        return prepareStackForOutput("value $inputValue (position: ${pos * 2 + 1}): insufficient parameters")
+        return prepareStackForOutput("operator $inputValue (position: ${pos * 2 + 1}): insufficient parameters")
     }
 
     private fun logWithStackOnly(): String {
@@ -59,7 +59,7 @@ class InputController {
             stringBuilder.append(Utils.formatDouble(it))
 
             if (iterator.hasNext()) {
-                stringBuilder.append(" ")
+                stringBuilder.append(Utils.STACK_SEPERATOR)
             }
         }
 
