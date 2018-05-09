@@ -1,10 +1,16 @@
 import input.InputController
 import org.junit.Assert.assertEquals
+import org.junit.Before
 import org.junit.Test
 
 class UnitTests {
 
-    private val inputController: InputController = InputController()
+    private lateinit var inputController: InputController
+
+    @Before
+    fun init() {
+        inputController = InputController()
+    }
 
     @Test
     fun example1() {
