@@ -132,11 +132,22 @@ class InputController {
      */
     private fun prepareStackForOutput(): String {
         val stringBuilder = StringBuilder()
+
+        /**
+         * Adds this substring so that the user can easier recognize this answer.
+         */
         stringBuilder.append("stack:")
 
         val iterator = stack.iterator()
         while (iterator.hasNext()) {
+            /**
+             * Adds a blank before each stack element.
+             */
             stringBuilder.append(Utils.STACK_SEPARATOR)
+
+            /**
+             * Format each stack value so that it would only show up to 10 positions.
+             */
             stringBuilder.append(Utils.formatDouble(iterator.next()))
         }
 
