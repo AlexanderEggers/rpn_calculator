@@ -5,7 +5,7 @@ import java.util.*
 
 /**
  * Class which is used to determine and executing the content of the command line input. First this class splitting
- * the content using the blank space between the characters. After that the class checks each character and determines
+ * the content using the blanks between the characters. After that the class checks each character and determines
  * it's operation. Numbers will be saved inside a [LinkedList] object for eventual later usage. Operators (like '+' or
  * '-') will be executed and saved inside a separate [LinkedList] to revert it's action. At the end the class is
  * returning a string [Array] which includes it's response to the user input.
@@ -26,7 +26,7 @@ class InputController {
 
     /**
      * Function which is used to determine the user input from the command line. The user input will be split using the
-     * blank between the characters. Each character will then be checked against the different operations. If no
+     * blanks between the characters. Each character will then be checked against the different operations. If no
      * operations have been found, the function will check if the given input character is numeric and therefore should
      * be added to the stack. After determine the [Operation], the function executes the found [Operation] object. At
      * the end the object will be saved and the current stack is returned.
@@ -41,7 +41,7 @@ class InputController {
      */
     fun executeInput(input: String): Array<String> {
         /**
-         * Splits the given input using the blank space between the characters.
+         * Splits the given input using the blanks between the characters.
          */
         val inputArray: List<String> = input.split(Utils.STACK_SEPARATOR)
 
@@ -81,15 +81,15 @@ class InputController {
             val successful = operation.execute(stack)
 
             /**
-            * If the execution of the operation was not successful, the function will return an error message and the
-            * current stack.
-            */
+             * If the execution of the operation was not successful, the function will return an error message and the
+             * current stack.
+             */
             if (!successful) return logWithErrorAndStack(it.value, it.index)
 
             /**
-            * If the operation was successful, the function will execute the save-function of this operation so that
-            * it could be reverted at a later time.
-            */
+             * If the operation was successful, the function will execute the save-function of this operation so that
+             * it could be reverted at a later time.
+             */
             else operation.save(operatorStack)
 
         }
@@ -101,35 +101,45 @@ class InputController {
     }
 
     /**
+     * Initializing the InputController answer using an error message and the current stack. The error message uses the
+     * given parameters to give the user a understandable explanation for the error.
      *
+     * @param inputValue input substring which has caused this error
+     * @param pos position inside the iterable object which has splitted the given input using the blanks between
+     * characters
+     * @return [Array] which holds the answer for the given command line input
      */
     private fun logWithErrorAndStack(inputValue: String, pos: Int): Array<String> {
-        return prepareStackForOutput("operator $inputValue (position: ${pos * 2 + 1}): insufficient parameters")
+        return arrayOf("operator $inputValue (position: ${pos * 2 + 1}): insufficient parameters", prepareStackForOutput())
     }
 
+    /**
+     * Initializing the InputController answer using the current stack.
+     *
+     * @return [Array] which holds the answer for the given command line input
+     */
     private fun logWithStackOnly(): Array<String> {
-        return prepareStackForOutput()
+        return arrayOf(prepareStackForOutput())
     }
 
-    private fun prepareStackForOutput(extra: String = ""): Array<String> {
+    /**
+     * Initializing the current stack content for the InputController answer. The function is using the [StringBuilder]
+     * to append the different values of the stack. At the beginning, the [StringBuilder] is placing a specific
+     * substring so that the user can easier recognize the part of the answer which displays the current stack content.
+     * Between each value, the [StringBuilder] is placing a blank.
+     *
+     * @return current stack as one single [String] object
+     */
+    private fun prepareStackForOutput(): String {
         val stringBuilder = StringBuilder()
         stringBuilder.append("stack:")
 
         val iterator = stack.iterator()
         while (iterator.hasNext()) {
-            if (iterator.hasNext()) {
-                stringBuilder.append(Utils.STACK_SEPARATOR)
-            }
-
-            val it = iterator.next()
-            stringBuilder.append(Utils.formatDouble(it))
+            stringBuilder.append(Utils.STACK_SEPARATOR)
+            stringBuilder.append(Utils.formatDouble(iterator.next()))
         }
 
-        val result = stringBuilder.toString()
-        return if (!extra.isEmpty()) {
-            arrayOf(extra, result)
-        } else {
-            arrayOf(result)
-        }
+        return stringBuilder.toString()
     }
 }
