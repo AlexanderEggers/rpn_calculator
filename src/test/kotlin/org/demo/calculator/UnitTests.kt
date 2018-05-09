@@ -1,4 +1,6 @@
-import input.InputController
+package org.demo.calculator
+
+import org.demo.calculator.input.InputController
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test

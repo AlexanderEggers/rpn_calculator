@@ -1,6 +1,6 @@
-package input
+package org.demo.calculator.input
 
-import opertator.*
+import org.demo.calculator.opertator.*
 import java.util.*
 
 class InputController {

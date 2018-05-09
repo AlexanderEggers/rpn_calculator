@@ -1,4 +1,4 @@
-package input
+package org.demo.calculator.input
 
 import java.math.RoundingMode
 import java.text.DecimalFormat

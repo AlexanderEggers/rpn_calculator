@@ -1,4 +1,6 @@
-import input.InputController
+package org.demo.calculator
+
+import org.demo.calculator.input.InputController
 import java.util.*
 
 class CalculatorApp {
@@ -14,8 +16,4 @@ class CalculatorApp {
             }
         }
     }
-}
-
-fun main(args: Array<String>) {
-    CalculatorApp().run()
 }

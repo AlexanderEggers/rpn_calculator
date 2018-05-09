@@ -1,6 +1,6 @@
-package opertator
+package org.demo.calculator.opertator
 
-import input.Utils
+import org.demo.calculator.input.Utils
 import java.util.*
 
 class StackOperation(private val value: String) : Operation(OperatorType.STACK) {
