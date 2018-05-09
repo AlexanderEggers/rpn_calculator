@@ -87,4 +87,11 @@ class UnitTests {
         assertEquals("operator * (position: 15): insufficient parameters", result[0])
         assertEquals("stack: 11", result[1])
     }
+
+    @Test
+    fun errorInputTest() {
+        val result = inputController.executeInput("1 2 3 * noNumber")
+        assertEquals("operator noNumber (position: 9): insufficient parameters", result[0])
+        assertEquals("stack: 1 6", result[1])
+    }
 }

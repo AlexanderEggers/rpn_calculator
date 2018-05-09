@@ -5,7 +5,7 @@ import java.text.DecimalFormat
 
 object Utils {
 
-    val STACK_SEPERATOR: String = " "
+    const val STACK_SEPARATOR: String = " "
 
     fun isNumeric(str: String): Boolean {
         try {

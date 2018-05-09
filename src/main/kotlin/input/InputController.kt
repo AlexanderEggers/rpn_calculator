@@ -9,7 +9,7 @@ class InputController {
     private val operatorStack: LinkedList<Operation> = LinkedList()
 
     fun executeInput(input: String): Array<String> {
-        val inputArray: List<String> = input.split(Utils.STACK_SEPERATOR)
+        val inputArray: List<String> = input.split(Utils.STACK_SEPARATOR)
 
         inputArray.withIndex().forEach {
             val operation: Operation
@@ -54,7 +54,7 @@ class InputController {
         val iterator = stack.iterator()
         while (iterator.hasNext()) {
             if (iterator.hasNext()) {
-                stringBuilder.append(Utils.STACK_SEPERATOR)
+                stringBuilder.append(Utils.STACK_SEPARATOR)
             }
 
             val it = iterator.next()
@@ -62,7 +62,7 @@ class InputController {
         }
 
         val result = stringBuilder.toString()
-        return if(!extra.isEmpty()) {
+        return if (!extra.isEmpty()) {
             arrayOf(extra, result)
         } else {
             arrayOf(result)
