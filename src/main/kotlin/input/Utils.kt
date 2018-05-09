@@ -1,5 +1,6 @@
 package input
 
+import java.math.RoundingMode
 import java.text.DecimalFormat
 
 object Utils {
@@ -21,6 +22,8 @@ object Utils {
     }
 
     fun formatDouble(value: Double): String {
-        return DecimalFormat("0.##########").format(value)
+        val df = DecimalFormat("0.##########")
+        df.roundingMode = RoundingMode.DOWN
+        return df.format(value)
     }
 }

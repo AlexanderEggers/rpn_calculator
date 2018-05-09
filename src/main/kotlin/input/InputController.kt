@@ -8,7 +8,7 @@ class InputController {
     private val stack: LinkedList<Double> = LinkedList()
     private val operatorStack: LinkedList<Operation> = LinkedList()
 
-    fun executeInput(input: String): String {
+    fun executeInput(input: String): Array<String> {
         val inputArray: List<String> = input.split(Utils.STACK_SEPERATOR)
 
         inputArray.withIndex().forEach {
@@ -39,30 +39,33 @@ class InputController {
         return logWithStackOnly()
     }
 
-    private fun logWithErrorAndStack(inputValue: String, pos: Int): String {
+    private fun logWithErrorAndStack(inputValue: String, pos: Int): Array<String> {
         return prepareStackForOutput("operator $inputValue (position: ${pos * 2 + 1}): insufficient parameters")
     }
 
-    private fun logWithStackOnly(): String {
+    private fun logWithStackOnly(): Array<String> {
         return prepareStackForOutput()
     }
 
-    private fun prepareStackForOutput(extra: String = ""): String {
+    private fun prepareStackForOutput(extra: String = ""): Array<String> {
         val stringBuilder = StringBuilder()
+        stringBuilder.append("stack:")
+
         val iterator = stack.iterator()
-
-        if (!extra.isEmpty()) stringBuilder.appendln(extra)
-        stringBuilder.append("stack: ")
-
         while (iterator.hasNext()) {
-            val it = iterator.next()
-            stringBuilder.append(Utils.formatDouble(it))
-
             if (iterator.hasNext()) {
                 stringBuilder.append(Utils.STACK_SEPERATOR)
             }
+
+            val it = iterator.next()
+            stringBuilder.append(Utils.formatDouble(it))
         }
 
-        return stringBuilder.toString()
+        val result = stringBuilder.toString()
+        return if(!extra.isEmpty()) {
+            arrayOf(extra, result)
+        } else {
+            arrayOf(result)
+        }
     }
 }

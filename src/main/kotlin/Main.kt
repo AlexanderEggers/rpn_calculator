@@ -1,7 +1,7 @@
 import input.InputController
 import java.util.*
 
-class CalculatorApp {
+open class CalculatorApp {
 
     private val scanner: Scanner = Scanner(System.`in`)
     private val inputController: InputController = InputController()
@@ -9,8 +9,9 @@ class CalculatorApp {
     fun run() {
         while (true) {
             val input = scanner.nextLine()
-            val currentStack = inputController.executeInput(input)
-            println(currentStack)
+            inputController.executeInput(input).forEach {
+                println(it)
+            }
         }
     }
 }
