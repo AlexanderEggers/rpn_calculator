@@ -1,7 +1,7 @@
 import input.InputController
 import java.util.*
 
-open class CalculatorApp {
+class CalculatorApp {
 
     private val scanner: Scanner = Scanner(System.`in`)
     private val inputController: InputController = InputController()
