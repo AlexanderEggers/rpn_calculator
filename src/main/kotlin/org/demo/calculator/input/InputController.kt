@@ -53,13 +53,13 @@ class InputController {
              * Determines the correct operation type.
              */
             val operation: Operation = when (it.value) {
-                OperationType.ADDITION.value -> AdditionOperation()
-                OperationType.SUBTRACTION.value -> SubtractionOperation()
-                OperationType.MULTIPLICATION.value -> MultiplicationOperation()
-                OperationType.DIVISION.value -> DivisionOperation()
-                OperationType.SQUARE.value -> SquareOperation()
-                OperationType.UNDO.value -> UndoOperation(operatorStack)
-                OperationType.CLEAR.value -> ClearOperation()
+                OperationType.ADDITION.key -> AdditionOperation()
+                OperationType.SUBTRACTION.key -> SubtractionOperation()
+                OperationType.MULTIPLICATION.key -> MultiplicationOperation()
+                OperationType.DIVISION.key -> DivisionOperation()
+                OperationType.SQUARE.key -> SquareOperation()
+                OperationType.UNDO.key -> UndoOperation(operatorStack)
+                OperationType.CLEAR.key -> ClearOperation()
                 else -> {
                     StackOperation(it.value)
                 }
@@ -78,7 +78,6 @@ class InputController {
              * it could be reverted at a later time.
              */
             else operation.save(operatorStack)
-
         }
 
         /**

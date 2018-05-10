@@ -31,13 +31,14 @@ class Utils {
 
         /**
          * Formats and converts the given [Double] to a [String] object. The [DecimalFormat] ensures that the value is
-         * not round and only displays up to 10 positions.
+         * not round and only displays up to ten positions.
          *
          * Note: The given example-2 had the operation "2 sqrt" which resulted into "1.4142135623". I personally would
          * say that the "more" correct value would be "1.4142135624" which would mean that the [DecimalFormat] should
          * round the given [Double] if possible. Due to this example I didn't implement my preferred way.
          *
-         * @param value 
+         * @param value a [Double] object
+         * @return a new [String] which has up to ten positions
          */
         fun formatDouble(value: Double): String {
             val df = DecimalFormat("0.##########")
