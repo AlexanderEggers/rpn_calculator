@@ -1,5 +1,7 @@
 package org.demo.calculator.input
 
+import org.demo.calculator.input.Utils.Companion.STACK_SEPARATOR
+import org.demo.calculator.input.Utils.Companion.formatDouble
 import org.demo.calculator.opertator.*
 import java.util.*
 
@@ -43,7 +45,7 @@ class InputController {
         /**
          * Splits the given input using the blanks between the characters.
          */
-        val inputArray: List<String> = input.split(Utils.STACK_SEPARATOR)
+        val inputArray: List<String> = input.split(STACK_SEPARATOR)
 
         /**
          * Iterates though the given input from command line.
@@ -129,12 +131,12 @@ class InputController {
             /**
              * Adds a blank before each stack element.
              */
-            stringBuilder.append(Utils.STACK_SEPARATOR)
+            stringBuilder.append(STACK_SEPARATOR)
 
             /**
              * Format each stack value so that it would only show up to 10 positions.
              */
-            stringBuilder.append(Utils.formatDouble(iterator.next()))
+            stringBuilder.append(formatDouble(iterator.next()))
         }
 
         return stringBuilder.toString()
