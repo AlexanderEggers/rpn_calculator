@@ -16,20 +16,6 @@ class Utils {
         const val STACK_SEPARATOR: String = " "
 
         /**
-         * Uses the given [String] to convert it to a [Double] object.
-         *
-         * @param str a [String] object
-         * @return a new [Double] object
-         */
-        fun parseToDouble(str: String): Double? {
-            return try {
-                java.lang.Double.parseDouble(str)
-            } catch (nfe: NumberFormatException) {
-                null
-            }
-        }
-
-        /**
          * Formats and converts the given [Double] to a [String] object. The [DecimalFormat] ensures that the value is
          * not round and only displays up to ten positions.
          *
