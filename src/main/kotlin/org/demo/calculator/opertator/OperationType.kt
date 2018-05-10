@@ -1,6 +1,6 @@
 package org.demo.calculator.opertator
 
-enum class OperatorType(val value: String, val requiredStackElements: Int, val revertable: Boolean) {
+enum class OperationType(val value: String, val requiredStackElements: Int, val revertable: Boolean) {
     ADDITION("+", 2, true),
     SUBTRACTION("-", 2, true),
     MULTIPLICATION("*", 2, true),

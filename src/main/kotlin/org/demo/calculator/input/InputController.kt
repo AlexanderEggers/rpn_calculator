@@ -36,7 +36,7 @@ class InputController {
      *
      * @return [Array] which represents the answer of the InputController to the given input string. The answer always
      * includes the current stack. In cases of errors in the given input, the answer will also include a error message.
-     * @see OperatorType
+     * @see OperationType
      * @see Operation
      */
     fun executeInput(input: String): Array<String> {
@@ -49,32 +49,19 @@ class InputController {
          * Iterates though the given input from command line.
          */
         inputArray.withIndex().forEach {
-            val operation: Operation
-
             /**
              * Determines the correct operation type.
              */
-            when (it.value) {
-                OperatorType.ADDITION.value -> operation = AdditionOperation()
-                OperatorType.SUBTRACTION.value -> operation = SubstractionOperation()
-                OperatorType.MULTIPLICATION.value -> operation = MultiplicationOperation()
-                OperatorType.DIVISION.value -> operation = DivisionOperation()
-                OperatorType.SQUARE.value -> operation = SquareOperation()
-                OperatorType.UNDO.value -> operation = UndoOperation(operatorStack)
-                OperatorType.CLEAR.value -> operation = ClearOperation()
+            val operation: Operation = when (it.value) {
+                OperationType.ADDITION.value -> AdditionOperation()
+                OperationType.SUBTRACTION.value -> SubtractionOperation()
+                OperationType.MULTIPLICATION.value -> MultiplicationOperation()
+                OperationType.DIVISION.value -> DivisionOperation()
+                OperationType.SQUARE.value -> SquareOperation()
+                OperationType.UNDO.value -> UndoOperation(operatorStack)
+                OperationType.CLEAR.value -> ClearOperation()
                 else -> {
-                    /**
-                     * If no valid operation have been, checks if the given input character is numeric.
-                     */
-                    if (Utils.isNumeric(it.value)) {
-                        operation = StackOperation(it.value)
-                    } else {
-                        /**
-                         * If the given input not even numeric, the function will return an error message and the
-                         * current stack.
-                         */
-                        return logWithErrorAndStack(it.value, it.index)
-                    }
+                    StackOperation(it.value)
                 }
             }
 

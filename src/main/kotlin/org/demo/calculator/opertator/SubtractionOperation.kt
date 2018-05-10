@@ -2,11 +2,10 @@ package org.demo.calculator.opertator
 
 import java.util.*
 
-class UndoOperation
-constructor(private val operationStack: LinkedList<Operation>) : Operation(OperationType.UNDO) {
+class SubtractionOperation : Operation(OperationType.SUBTRACTION) {
 
     override fun onExecute(stack: LinkedList<Double>, values: Array<Double>): Boolean {
-        operationStack.pollLast().revert(stack)
+        stack.addLast(values[0] - values[1])
         return true
     }
 }
