@@ -12,7 +12,7 @@ class DivisionOperation : Operation(OperationType.DIVISION) {
          * Checks if the second operation value not null, which would return a NaN.
          */
         if (values[1] != 0.0) {
-            stack.addLast(values[0] / values[1])
+            stack.addLast(values[0].div(values[1]))
             return true
         }
         return false
