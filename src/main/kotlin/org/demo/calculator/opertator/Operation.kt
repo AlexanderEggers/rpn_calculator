@@ -71,10 +71,17 @@ abstract class Operation constructor(private val operationType: OperationType) {
             if (operationType.requiredStackElements > 0) prepareExecuteValues(stack)
 
             /**
-             * Converts the [Operation.valueList] to a revered [Array] that the operation can use. The return value of
-             * this function will be used to tell the [InputController] if the operation was successful
+             * Converts the [Operation.valueList] as a reversed list to an [Array] that the operation can use. The
+             * reversed state ensures, that the first value of the array is the first value that should be operated on,
+             * like a - b and not b - a. The return value of this function will be used to tell the [InputController]
+             * if the operation was successful.
+             *
+             * Example with: 20 5 *
+             * - Inside [Operation.valueList] the values are saved as 5 20 because the class gets the values as
+             * pollLast.
+             * - Therefore the onExecute function should retrieve the values as 20 5 because 20 is out A and 5 our B.
              */
-            return onExecute(stack, valueList.reversed().toTypedArray())
+            return onExecute(stack, valueList.toTypedArray())
         }
         return false
     }
@@ -90,7 +97,8 @@ abstract class Operation constructor(private val operationType: OperationType) {
          */
         if (operationType.revertable) {
             /**
-             * Removes the latest element that have been added to the stack from this operation.
+             * Removes the latest element that have been added to the stack from this operation. The reversed state
+             * ensures that the right order of elements are added back to the stack.
              */
             stack.pollLast()
             valueList.reversed().forEach {
