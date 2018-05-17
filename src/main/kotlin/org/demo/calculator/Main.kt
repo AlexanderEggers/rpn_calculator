@@ -5,5 +5,5 @@ package org.demo.calculator
  * [CalculatorApp].
  */
 fun main(args: Array<String>) {
-    CalculatorApp().run()
+    CalculatorApp.run()
 }

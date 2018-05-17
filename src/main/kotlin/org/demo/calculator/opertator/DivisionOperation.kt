@@ -11,10 +11,9 @@ class DivisionOperation : Operation(OperationType.DIVISION) {
         /**
          * Checks if the second operation value equals the value zero, which would return a NaN.
          */
-        if (values[1] != 0.0) {
+        return if (values[1] != 0.0) {
             stack.addLast(values[0].div(values[1]))
-            return true
-        }
-        return false
+            true
+        } else false
     }
 }

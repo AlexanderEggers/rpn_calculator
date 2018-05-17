@@ -4,11 +4,11 @@ import org.demo.calculator.input.InputController
 import java.util.*
 
 /**
- * Class which is runs in a loop to retrieve the latest input from the command line. The input value will then send to
- * the [InputController] class. This class is also responsible to display any results from the [InputController] by sending
- * it's strings to the command line.
+ * Class singleton which is runs in a loop to retrieve the latest input from the command line. The input value will
+ * then send to the [InputController] class. This class is also responsible to display any results from the
+ * [InputController] by sending it's strings to the command line.
  */
-class CalculatorApp {
+object CalculatorApp {
 
     /**
      * Scanner object which is used to get the latest user input from the command line.
