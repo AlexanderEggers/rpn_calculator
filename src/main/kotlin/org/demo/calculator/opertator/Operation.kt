@@ -81,7 +81,7 @@ abstract class Operation constructor(private val operationType: OperationType) {
              * pollLast.
              * - Therefore the onExecute function should retrieve the values as 20 5 because 20 is out A and 5 our B.
              */
-            return onExecute(stack, valueList.toTypedArray())
+            return onExecute(stack, valueList.reversed().toTypedArray())
         }
         return false
     }
